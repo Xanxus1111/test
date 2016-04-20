@@ -9,3 +9,21 @@ git reset --hard commit_id  //
 git reflog // record every command
 git diff HEAD -- <file>// 用git diff HEAD -- readme.txt命令可以查看工作区和版本库里面最新版本的区别
 
+//撤销修改
+git checkout -- <file>//把file文件在工作区的修改全部撤销
+//一种是readme.txt自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；
+
+一种是readme.txt已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。
+
+总之，就是让这个文件回到最近一次git commit或git add时的状态
+
+//场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout -- file。
+场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，
+分两步，第一步用命令git reset HEAD file，就回到了场景1，第二步按场景1操作。
+
+//删除文件
+git rm <file>
+git commit -m "remove file"
+//现在，文件就从版本库中被删除了
+//另一种情况是删错了，因为版本库里还有呢，所以可以很轻松地把误删的文件恢复到最新版本
+git checkout -- file
