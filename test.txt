@@ -1,1 +1,9 @@
-finaly it is work well 
+mkdir //创建文件夹
+git init //初始化仓库
+git add <file>// add to repository
+git commit -m"" // "command"
+git status //
+git diff  // show different
+git log  // show daily  commit id
+git reset --hard commit_id  //
+git reflog // record every command
